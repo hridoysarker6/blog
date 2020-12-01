@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/new', [TestController::class,'test']);
+// Route::get('/new', [TestController::class,'test']);
 
 
+Route::post('app/create-tag',[AdminController::class,'addTag']);
+Route::get('app/get-tag',[AdminController::class,'getTag']);
